@@ -1,0 +1,9 @@
+{
+    "material-icon-theme.files.associations": {
+            
+    },
+    "material-icon-theme.folders.associations": {
+            "src": "nestjs"
+        },
+        "material-icon-theme.activeIconPack": "nest",
+}
