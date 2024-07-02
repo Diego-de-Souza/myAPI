@@ -90,3 +90,8 @@ O gerador de CRUD já gera toda estrutura para a rota e serviço, mas se for nec
 ```bash
   $ nest g controller [name]
 ```
+Caso seje necessário criar uma service utilize o comando:
+
+```bash
+  nest g service [name]
+```
