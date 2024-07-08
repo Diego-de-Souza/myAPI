@@ -33,10 +33,16 @@ todos os comando necessário para implementação futuras e processos utilizados
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+[Mongoose](https://mongoosejs.com/docs/index.html) biblioteca para modelar dados do aplicativo para banco de dados.
 
+## Installation
+Nest:
 ```bash
 $ npm install
+```
+Mongoose: 
+```bash
+  npm i @nestjs/mongoose mongoose
 ```
 
 ## Running the app
@@ -94,4 +100,35 @@ Caso seje necessário criar uma service utilize o comando:
 
 ```bash
   nest g service [name]
+```
+Caso seje necessário um modulo utilize o comando:
+
+```bash
+  nest g module [name]
+```
+
+## Schema Mongoose
+A criação do schema é de forma manual cada um dentro de sua pasta de CRUD.
+modelo de sintaxe de criação do arquivo schema:
+```
+  [name].schema.ts
+```
+Obs.: Se a coleção não existir no mongoose ao criar a requisição de inclusão de ados será criado automaticamente conforme configurado o schema.
+
+## Estrutura CRUD
+
+```
+src/
+├── contacts/
+│   ├── contacts.module.ts        # Módulo que define o módulo de contatos
+│   ├── contacts.controller.ts    # Controlador que lida com as requisições HTTP para contatos
+│   ├── contacts.service.ts       # Serviço que contém a lógica de negócios para contatos
+│   ├── contact.schema.ts         # Schema Mongoose para contatos
+│   ├── dto/
+│   │   ├── create-contact.dto.ts  # DTO para criar um contato
+│   │   ├── update-contact.dto.ts  # DTO para atualizar um contato
+│   ├── schemas/
+│   │   ├── contact.schema.ts   # Schema de contato
+│   ├── entities/
+│   │   ├── contact.entity.ts
 ```

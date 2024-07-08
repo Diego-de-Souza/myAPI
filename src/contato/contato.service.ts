@@ -1,26 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { CreateContatoDto } from './dto/create-contato.dto';
-import { UpdateContatoDto } from './dto/update-contato.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Contato } from './entities/contato.entity';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ContatoService {
-  create(createContatoDto: CreateContatoDto) {
-    return 'This action adds a new contato';
+  constructor(@InjectModel('Contato') private contatoModel: Model<Contato>){}
+
+
+  async criarContato(createContatoDto: CreateContatoDto){
+    const contato = new this.contatoModel(createContatoDto);
+    return contato.save();
   }
 
-  findAll() {
-    return `This action returns all contato`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} contato`;
-  }
-
-  update(id: number, updateContatoDto: UpdateContatoDto) {
-    return `This action updates a #${id} contato`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} contato`;
-  }
 }

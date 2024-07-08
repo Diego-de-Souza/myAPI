@@ -7,33 +7,10 @@ import { UpdateContatoDto } from './dto/update-contato.dto';
 export class ContatoController {
   constructor(private readonly contatoService: ContatoService) {}
 
-  @Get('promessa')
-  async findAlls(): Promise<any[]>{
-    return []
-  }
-
   @Post()
-  create(@Body() createContatoDto: CreateContatoDto) {
-    return this.contatoService.create(createContatoDto);
+  async criaContato(@Body() createContatoDto: CreateContatoDto) {
+    return this.contatoService.criarContato(createContatoDto);
   }
 
-  @Get()
-  findAll() {
-    return this.contatoService.findAll();
-  }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.contatoService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateContatoDto: UpdateContatoDto) {
-    return this.contatoService.update(+id, updateContatoDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.contatoService.remove(+id);
-  }
 }
